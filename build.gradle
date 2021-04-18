@@ -53,7 +53,7 @@ task checkFlywayMigrationFilenamePrefixForUniqueness() {
       if (count > 1) {
 
         // Get a list of guilty filenames
-        def guiltyFilenames = filenames.findAll { it.startsWith(prefix) }
+        def guiltyFilenames = filenames.findAll { it.startsWith("${prefix}__") }
 
         // Create an error message
         def message = "Flyway migration filename prefix is not unique for: ${prefix}"
